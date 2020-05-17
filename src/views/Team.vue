@@ -1,7 +1,10 @@
 <template>
-    <v-container class="team">
-        <h1>Team</h1>
-    </v-container>
+    <div class="team">
+        <v-container class="my-5">
+            <h1 class="=display-1 grey--text mx-6 mb-5">Team</h1>
+            Content
+        </v-container>
+    </div>
 </template>
 
 <script>
