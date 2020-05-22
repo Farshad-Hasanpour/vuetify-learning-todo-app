@@ -2,10 +2,11 @@ import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 Vue.use(Vuetify, {
     theme:{
-        primary: '#9652ff',
-        success: '#3cd1c2',
-        info: '#ffaa2c',
-        error: '#f83e70',
+        primary: '#0D47A1',
+        success: 'green lighten-2',
+        info: 'blue',
+        error: '#333333',
+        warning: '#ffaa2c'
     }
 })
 

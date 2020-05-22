@@ -84,6 +84,16 @@
                             icon: 'mdi-link-variant',
                             text: 'Grid Version 2',
                             route: '/archive/3'
+                        },
+                        {
+                            icon: 'mdi-link-variant',
+                            text: 'Single Select',
+                            route: '/archive/4'
+                        },
+                        {
+                            icon: 'mdi-link-variant',
+                            text: 'Single Select 2',
+                            route: '/archive/5'
                         }
                     ]
                 }

@@ -35,6 +35,16 @@ const routes = [
         name: 'Grid Version 2',
         component: () => import('../views/Archived/GridV2.vue')
     },
+    {
+        path: '/archive/4',
+        name: 'SingleSelect',
+        component: () => import('../components/Archived/SingleSelect.vue')
+    },
+    {
+        path: '/archive/5',
+        name: 'SingleSelect',
+        component: () => import('../components/Archived/SingleSelect2.vue')
+    },
 ]
 
 const router = new VueRouter({
