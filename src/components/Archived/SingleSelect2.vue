@@ -14,7 +14,8 @@
                     <v-icon v-text="btn.icon"></v-icon>
                 </v-btn>
             </div>
-            <v-tabs v-model="tab" slider-size="40px" class="question elevation-3" background-color="blue darken-4" dark right >
+
+            <v-tabs height="60px" v-model="tab" slider-size="40px" class="question elevation-3" background-color="blue darken-4" dark right >
                 <v-tabs-slider color="orange"></v-tabs-slider>
 
                 <v-tab v-for="tab in questionTabs" :key="tab.title" :href="tab.href" class="font-weight-thin">
@@ -33,10 +34,11 @@
                                     :items="questionTypes"
                                     item-text="title"
                                     label="نوع سوال"
+                                    hide-details
                                 ></v-select>
                             </v-col>
                             <v-col order="1">
-                                <v-text-field outlined reverse  label="متن سوال"></v-text-field>
+                                <v-text-field hide-details outlined reverse  label="متن سوال"></v-text-field>
                             </v-col>
                         </v-row>
                         <h3 class=" text-right r-dir mb-2" style="color: #aaa;">گزینه های پاسخ:</h3>
@@ -149,6 +151,7 @@
                                     </v-col>
                                 </v-row>
                             </v-col>
+
                         </v-row>
 
                         <div v-if="imagedSelectQuestion">
@@ -163,9 +166,7 @@
                             </v-row>
                             <v-row>
                                 <v-col class="mr-auto ml-0">
-                                    <v-btn :disabled="errorMessage.length" :dark="!errorMessage.length" color="green" title="ذخیره تغییرات سوال" fab>
-                                        <v-icon>mdi-floppy</v-icon>
-                                    </v-btn>
+
                                 </v-col>
                                 <v-col class="ml-auto mr-0 text-right">
                                     <v-btn color="blue darken-4" large rounded dark>
@@ -188,8 +189,6 @@
                 </v-tabs-items>
             </v-tabs>
         </div>
-
-
 
     </v-container>
 </template>
@@ -217,6 +216,7 @@
         data: function(){
             return {
                 //Models
+                imagedOptionDialog: false,
                 tab: 'main',
                 errorMessage: 'متن سوال نباید خالی باشد',
                 SelectedAnswerOptions:{

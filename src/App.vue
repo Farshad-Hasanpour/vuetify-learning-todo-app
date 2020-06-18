@@ -19,13 +19,17 @@
 </script>
 
 <style lang="scss">
+    :root{
+        --primary: #0D47A1;
+    }
+
     html{
         overflow-y: auto !important;
     }
 
-    #app{
+    /*#app{
         font-family: shabnam, tahoma !important;
-    }
+    }*/
 
     @font-face {
         font-family: shabnam;
@@ -40,12 +44,12 @@
         direction: rtl !important;
     }
 
-    input{
+    /*input{
         direction: rtl !important;
     }
 
     .v-select-list{
         text-align: right;
         direction: rtl;
-    }
+    }*/
 </style>

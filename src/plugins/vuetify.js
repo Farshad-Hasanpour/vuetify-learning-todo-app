@@ -1,14 +1,16 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
-Vue.use(Vuetify, {
-    theme:{
-        primary: '#0D47A1',
-        success: 'green lighten-2',
-        info: 'blue',
-        error: '#333333',
-        warning: '#ffaa2c'
-    }
-})
+Vue.use(Vuetify);
 
 export default new Vuetify({
+	theme: {
+		themes: {
+			light: {
+				primary: '#0D47A1',
+				error: '#E5393',
+				warning: '#ffaa2c',
+				success: '#4CAF50',
+			},
+		},
+	},
 })

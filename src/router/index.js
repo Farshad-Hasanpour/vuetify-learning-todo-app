@@ -37,12 +37,12 @@ const routes = [
     },
     {
         path: '/archive/4',
-        name: 'SingleSelect',
+        name: 'SingleSelect1',
         component: () => import('../components/Archived/SingleSelect.vue')
     },
     {
         path: '/archive/5',
-        name: 'SingleSelect',
+        name: 'SingleSelect2',
         component: () => import('../components/Archived/SingleSelect2.vue')
     },
 ]

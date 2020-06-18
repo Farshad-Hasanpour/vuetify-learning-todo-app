@@ -3,16 +3,29 @@
         <v-container class="my-5">
             <h1 class="=display-1 grey--text mx-6 mb-5">Dashboard</h1>
             <v-row class="mb-3 mx-6">
-                <v-btn small text color="grey">
-                    <v-icon left="" small="">mdi-folder</v-icon>
-                    <span class="caption">by project name</span>
-                </v-btn>
-                <v-btn small text color="grey">
-                    <v-icon left small>mdi-account</v-icon>
-                    <span class="caption">by person</span>
-                </v-btn>
+                <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn small text color="grey" @click="sortBy('title')" v-bind="attrs" v-on="on">
+                            <v-icon left small>mdi-folder</v-icon>
+                            <span class="caption">by project name</span>
+                        </v-btn>
+                    </template>
+                    <span>Sort projects by project name</span>
+                </v-tooltip>
+
+                <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn small text color="grey" @click="sortBy('person')" v-bind="attrs" v-on="on">
+                            <v-icon left small>mdi-account</v-icon>
+                            <span class="caption">by person</span>
+                        </v-btn>
+                    </template>
+                    <span>Sort projects by person</span>
+                </v-tooltip>
+
+
             </v-row>
-            <v-card flat :class="[project.status, 'project', 'px-4 mx-6 my-4']" v-for="project in projects" :key="project.title">
+            <v-card flat :class="[project.status, 'project', 'px-4 py-2 mx-6']" v-for="project in projects" :key="project.title">
                 <v-row>
                     <v-col cols="12" md="6">
                         <div class="caption grey--text">Project title</div>
@@ -42,34 +55,39 @@
             return {
                 projects: [
                     {
-                        title: 'Design a new website',
-                        person: 'Farshad',
+                        title: 'Design a new website 1',
+                        person: 'Farshad 2',
                         due: '1st jan 2019',
                         status: 'complete',
                         content: 'this is content'
                     },
                     {
-                        title: 'Design a new website',
-                        person: 'Farshad',
+                        title: 'Design a new website 2',
+                        person: 'Farshad 3',
                         due: '1st jan 2019',
                         status: 'complete',
                         content: 'this is content'
                     },
                     {
-                        title: 'Design a new website',
-                        person: 'Farshad',
+                        title: 'Design a new website 3',
+                        person: 'Farshad 1',
                         due: '1st jan 2019',
                         status: 'overdue',
                         content: 'this is content'
                     },
                     {
-                        title: 'Design a new website',
-                        person: 'Farshad',
+                        title: 'Design a new website 4',
+                        person: 'Farshad 4',
                         due: '1st jan 2019',
                         status: 'ongoing',
                         content: 'this is content'
                     },
                 ]
+            }
+        },
+        methods:{
+            sortBy(prop){
+                this.projects.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
             }
         }
     }
@@ -80,6 +98,11 @@
         border-radius: 0 !important;
         border-left-style: solid;
         border-left-width: 4px;
+
+    }
+
+    .project:not(:last-child){
+        border-bottom: 1px #ccc solid;
     }
 
     .project.complete{
