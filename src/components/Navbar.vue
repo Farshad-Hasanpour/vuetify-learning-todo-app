@@ -1,5 +1,9 @@
 <template>
 	<nav>
+		<v-snackbar v-model="snackbar" :timeout="4000" top color="success">
+			<span>Awesome! You added a new project.</span>
+			<v-btn elevation="0" color="white" @click="snackbar = false">Close</v-btn>
+		</v-snackbar>
 		<v-app-bar flat app color="primary" dark clipped-left>
 			<v-app-bar-nav-icon @click="drawer = !drawer" color="white"></v-app-bar-nav-icon>
 			<v-toolbar-title class="text-uppercase">
@@ -40,7 +44,7 @@
 					<p class="white--text mt-1">
 						The Net Ninja
 					</p>
-					<popup/>
+					<popup @projectAdded="snackbar = true" />
 				</v-col>
 			</v-row>
 			<v-list subheader>
@@ -82,6 +86,7 @@
 		data: function(){
 			return{
 				drawer: false,
+				snackbar: false,
 				links:[
 					{
 						icon: 'mdi-home',

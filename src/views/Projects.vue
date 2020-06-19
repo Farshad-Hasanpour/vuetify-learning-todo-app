@@ -3,7 +3,7 @@
 		<v-container class="my-5">
 			<h1 class="=display-1 grey--text mx-6 mb-5">Projects</h1>
 			<v-expansion-panels>
-				<v-expansion-panel v-for="project in myProjects" :key="project.title">
+				<v-expansion-panel v-for="project in myProjects" :key="project.id">
 					<v-expansion-panel-header>{{ project.title }}</v-expansion-panel-header>
 					<v-expansion-panel-content class="px-4 grey--text">
 						<div class="font-weight-bold">due by {{project.due}}</div>
@@ -16,40 +16,12 @@
 </template>
 
 <script>
+	import db from '@/fb';
 	export default {
 		name: "Projects",
 		data(){
 			return{
-				projects: [
-					{
-						title: 'Design a new website 1',
-						person: 'Farshad',
-						due: '1st jan 2019',
-						status: 'complete',
-						content: 'this is content'
-					},
-					{
-						title: 'Design a new website 2',
-						person: 'Farshad',
-						due: '1st jan 2019',
-						status: 'complete',
-						content: 'this is content'
-					},
-					{
-						title: 'Design a new website 3',
-						person: 'Farshad 1',
-						due: '1st jan 2019',
-						status: 'overdue',
-						content: 'this is content'
-					},
-					{
-						title: 'Design a new website 4',
-						person: 'Farshad 4',
-						due: '1st jan 2019',
-						status: 'ongoing',
-						content: 'this is content'
-					},
-				]
+				projects: []
 			}
 		},
 		computed:{
@@ -58,6 +30,20 @@
 					return project.person === 'Farshad'
 				})
 			}
+		},
+		created(){
+			db.collection('projects').onSnapshot(res => {
+				const changes = res.docChanges();
+				changes.forEach(change => {
+					if(change.type === 'added'){
+						this.projects.push({
+							...change.doc.data(), //spread properties to object
+							id: change.doc.id
+						})
+					}
+				})
+
+			})
 		}
 	}
 </script>
