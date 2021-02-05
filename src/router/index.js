@@ -34,11 +34,6 @@ const routes = [
         path: '/archive/3',
         name: 'Grid Version 2',
         component: () => import('../views/Archived/GridV2.vue')
-    },
-    {
-        path: '/archive/4',
-        name: 'SingleSelect',
-        component: () => import('../components/Archived/SingleSelect.vue')
     }
 ]
 

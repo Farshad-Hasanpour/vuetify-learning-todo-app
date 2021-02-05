@@ -1,4 +1,10 @@
-# vuetify
+# vuetify learning todo app
+a todo website to learn vuetify. It is based on a tutorial from the Ninja Net. firebase db is used to upload data.
+
+## Website
+```
+[vuetify-todo.farshadhp.ir](http://vuetify-todo.farshadhp.ir).
+```
 
 ## Project setup
 ```
